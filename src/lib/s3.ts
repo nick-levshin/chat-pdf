@@ -23,19 +23,19 @@ export async function uploadToS3(file: File) {
       Body: file,
     };
 
-    const upload = s3
-      .putObject(params)
-      .on('httpUploadProgress', (e) => {
-        console.log(
-          'uploading to s3...',
-          parseInt(((e.loaded * 100) / e.total).toString()) + '%'
-        );
-      })
-      .promise();
+    // const upload = s3
+    //   .putObject(params)
+    //   .on('httpUploadProgress', (e) => {
+    //     console.log(
+    //       'uploading to s3...',
+    //       parseInt(((e.loaded * 100) / e.total).toString()) + '%'
+    //     );
+    //   })
+    //   .promise();
 
-    await upload.then((data) => {
-      console.log('successfully uploaded to S3!', file_key);
-    });
+    // await upload.then(() => {
+    //   console.log('successfully uploaded to S3!', file_key);
+    // });
 
     return Promise.resolve({
       file_key,
